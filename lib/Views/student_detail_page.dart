@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/student.dart';
+import '../models/student_model.dart';
 
 class StudentDetailPage extends StatelessWidget {
   const StudentDetailPage({super.key, required this.student});

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../models/student.dart';
+import '../models/student_model.dart';
 import '../view_models/auth_view_model.dart';
 import '../view_models/student_view_model.dart';
 

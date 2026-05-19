@@ -8,8 +8,7 @@ Malepe T   223015611
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-
-import 'models/student.dart';
+import '../models/student_model.dart';
 
 import 'services/supabase_service.dart';
 
@@ -20,7 +19,7 @@ import 'views/home_page.dart';
 import 'views/login_page.dart';
 import 'views/student_form_page.dart';
 import 'views/student_detail_page.dart';
-import 'views/admin_dashboard.dart';
+import '../views/admin_dashBoard.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
