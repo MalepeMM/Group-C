@@ -1,3 +1,12 @@
+
+/*
+TPG316C GROUP ASSINGMENT:Group C
+CHAUKE S   223032277
+KGATUKE M  222029835
+MASHELE PV 224120975
+Malepe T   223015611
+ */
+
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -33,44 +42,18 @@ class _AdminDashboardState extends State<AdminDashboard> {
   }
 
   Future<void> updateStatus(String id, String status) async {
-    try {
-      await Supabase.instance.client
-          .from('applications')
-          .update({'status': status})
-          .eq('id', id);
+    await Supabase.instance.client
+        .from('applications')
+        .update({'status': status})
+        .eq('id', id);
 
-      // Refresh immediately after update
-      await loadApplications();
-    } catch (e) {
-      print('Error updating status: $e');
-      if (mounted) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text('Error updating status: $e')));
-      }
-    }
+    loadApplications();
   }
 
   Future<void> deleteApplication(String id) async {
-    try {
-      await Supabase.instance.client.from('applications').delete().eq('id', id);
+    await Supabase.instance.client.from('applications').delete().eq('id', id);
 
-      // Refresh immediately after delete
-      await loadApplications();
-
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Application deleted successfully')),
-        );
-      }
-    } catch (e) {
-      print('Error deleting application: $e');
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error deleting application: $e')),
-        );
-      }
-    }
+    loadApplications();
   }
 
   Future<void> logout() async {
@@ -103,9 +86,24 @@ class _AdminDashboardState extends State<AdminDashboard> {
               isExpanded: true,
               items: const [
                 DropdownMenuItem(value: 'All', child: Text('All')),
-                DropdownMenuItem(value: 'Pending', child: Text('Pending')),
-                DropdownMenuItem(value: 'Approved', child: Text('Approved')),
-                DropdownMenuItem(value: 'Rejected', child: Text('Rejected')),
+                DropdownMenuItem(
+                  value: 'Pending',
+                  child: Text(
+                    'Pending',
+                    style: TextStyle(color: Colors.orange),
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: 'Approved',
+                  child: Text(
+                    'Approved',
+                    style: TextStyle(color: Colors.green),
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: 'Rejected',
+                  child: Text('Rejected', style: TextStyle(color: Colors.red)),
+                ),
               ],
               onChanged: (value) {
                 setState(() {
@@ -161,13 +159,19 @@ class _AdminDashboardState extends State<AdminDashboard> {
                                   ElevatedButton(
                                     onPressed: () =>
                                         updateStatus(app['id'], 'Approved'),
-                                    child: const Text('Approve'),
+                                    child: const Text(
+                                      'Approve',
+                                      style: TextStyle(color: Colors.green),
+                                    ),
                                   ),
                                   const SizedBox(width: 10),
                                   ElevatedButton(
                                     onPressed: () =>
                                         updateStatus(app['id'], 'Rejected'),
-                                    child: const Text('Reject'),
+                                    child: const Text(
+                                      'Reject',
+                                      style: TextStyle(color: Colors.red),
+                                    ),
                                   ),
                                   const SizedBox(width: 10),
                                   ElevatedButton(
