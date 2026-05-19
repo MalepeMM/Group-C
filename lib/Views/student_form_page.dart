@@ -1,3 +1,11 @@
+/*
+TPG316C GROUP ASSINGMENT:Group C
+CHAUKE S   223032277
+KGATUKE M  222029835
+MASHELE PV 224120975
+Malepe T   223015611
+ */
+
 // ============================================================
 // Student Assistant Application – Student Form Page
 // Allows students to create or edit their applications.
@@ -83,7 +91,7 @@ class _StudentFormPageState extends State<StudentFormPage> {
   Future<void> _pickFile() async {
     try {
       // Use the static pickFiles method which is universally available
-      final result = await FilePicker.platform.pickFiles();
+      final result = await FilePicker.pickFiles();
 
       if (result != null && result.files.single.path != null) {
         setState(() {

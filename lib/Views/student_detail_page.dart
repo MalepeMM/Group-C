@@ -1,3 +1,11 @@
+/*
+TPG316C GROUP ASSINGMENT:Group C
+CHAUKE S   223032277
+KGATUKE M  222029835
+MASHELE PV 224120975
+Malepe T   223015611
+ */
+
 import 'package:flutter/material.dart';
 import '../models/student_model.dart';
 
