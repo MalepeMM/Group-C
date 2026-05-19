@@ -8,7 +8,7 @@ Malepe T   223015611
 
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import '../models/student.dart';
+import '../models/student_model.dart';
 
 class StudentViewModel extends ChangeNotifier {
   final List<StudentApplication> _applications = [];
